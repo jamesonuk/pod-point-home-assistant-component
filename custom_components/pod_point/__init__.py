@@ -90,7 +90,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
     files_path = Path(__file__).parent / "static"
     if hass.http:
         await hass.http.async_register_static_paths(
-            [APP_IMAGE_URL_BASE, str(files_path), should_cache]
+            [StaticPathConfig(APP_IMAGE_URL_BASE, str(files_path), should_cache)]
         )
 
     # For every platform defined, check if the user has disabled it. If not, set it up
