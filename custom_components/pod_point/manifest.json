@@ -568,7 +568,8 @@
     "podpointclient==1.6.1",
     "StrEnum>=0.4,<0.5",
     "aiodiscover",
-    "scapy"
+    "scapy",
+    "aiopath"
   ],
   "version": "2.0.3"
 }
