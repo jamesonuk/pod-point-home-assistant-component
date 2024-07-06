@@ -8,7 +8,7 @@ https://github.com/mattrayner/pod-point-home-assistant-component
 import asyncio
 from datetime import timedelta
 import logging
-from pathlib import Path
+from aiopath import AsyncPath
 from typing import Dict, List
 
 from homeassistant.components.http import StaticPathConfig
@@ -88,7 +88,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
 
     # Setup static image asset serving
     should_cache = False
-    files_path = Path(__file__).parent / "static"
+    files_path = await AsyncPath(__file__).parent / "static"
     if hass.http:
         await hass.http.async_register_static_paths(
             [StaticPathConfig(APP_IMAGE_URL_BASE, str(files_path), should_cache)]
