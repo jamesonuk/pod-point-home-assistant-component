@@ -4,7 +4,7 @@ import logging
 from typing import Dict
 
 from homeassistant import config_entries
-from homeassistant.components import dhcp
+from homeassistant.helpers.service_info  import dhcp
 from homeassistant.core import callback
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.helpers.aiohttp_client import async_create_clientsession

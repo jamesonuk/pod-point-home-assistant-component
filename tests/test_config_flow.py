@@ -4,7 +4,7 @@ from types import MappingProxyType
 from unittest.mock import patch
 
 from homeassistant import config_entries, data_entry_flow
-from homeassistant.components import dhcp
+from homeassistant.helpers.service_info  import dhcp
 from homeassistant.core import HomeAssistant
 import pytest
 from pytest_homeassistant_custom_component.common import MockConfigEntry
