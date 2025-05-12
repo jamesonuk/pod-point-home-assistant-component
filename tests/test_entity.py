@@ -15,7 +15,7 @@ from homeassistant.components.sensor import (
 from homeassistant.components.switch import SERVICE_TURN_OFF, SERVICE_TURN_ON
 from homeassistant.const import (
     ATTR_ENTITY_ID,
-    ENERGY_KILO_WATT_HOUR,
+    UnitOfEnergy,
 )
 import homeassistant.helpers.aiohttp_client as client
 from podpointclient.charge_mode import ChargeMode

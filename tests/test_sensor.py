@@ -14,7 +14,7 @@ from homeassistant.components.sensor import (
 from homeassistant.components.switch import SERVICE_TURN_OFF, SERVICE_TURN_ON
 from homeassistant.const import (
     ATTR_ENTITY_ID,
-    ENERGY_KILO_WATT_HOUR,
+    UnitOfEnergy,
 )
 import homeassistant.helpers.aiohttp_client as client
 from podpointclient.charge_override import ChargeOverride
@@ -155,7 +155,7 @@ async def test_total_energy_pod_sensor(hass, bypass_get_data):
     assert SensorDeviceClass.ENERGY == total_energy.device_class
     assert SensorStateClass.TOTAL_INCREASING == total_energy.state_class
     assert 0.0 == total_energy.native_value
-    assert ENERGY_KILO_WATT_HOUR == total_energy.native_unit_of_measurement
+    assert UnitOfEnergy.KILO_WATT_HOUR == total_energy.native_unit_of_measurement
     assert "mdi:lightning-bolt-outline" == total_energy.icon
     assert False == total_energy.is_on
 
