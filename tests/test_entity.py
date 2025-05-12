@@ -10,11 +10,11 @@ from unittest.mock import Mock, call, patch
 from homeassistant.components import switch
 from homeassistant.components.sensor import (
     SensorStateClass,
+    SensorDeviceClass,
 )
 from homeassistant.components.switch import SERVICE_TURN_OFF, SERVICE_TURN_ON
 from homeassistant.const import (
     ATTR_ENTITY_ID,
-    DEVICE_CLASS_ENERGY,
     ENERGY_KILO_WATT_HOUR,
 )
 import homeassistant.helpers.aiohttp_client as client
