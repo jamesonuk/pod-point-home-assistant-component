@@ -9,8 +9,7 @@ from unittest.mock import Mock, call, patch
 # import aiohttp
 from homeassistant.components import switch
 from homeassistant.components.sensor import (
-    STATE_CLASS_TOTAL,
-    STATE_CLASS_TOTAL_INCREASING,
+    SensorStateClass,
 )
 from homeassistant.components.switch import SERVICE_TURN_OFF, SERVICE_TURN_ON
 from homeassistant.const import (
