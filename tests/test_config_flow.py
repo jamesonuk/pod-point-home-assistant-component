@@ -155,7 +155,7 @@ async def test_options_flow(hass, bypass_get_data):
     result = await hass.config_entries.options.async_init(entry.entry_id)
 
     # Verify that the first options step is a user form
-    assert result["type"] == FlowResultType.CREATE_ENTRY
+    assert result["type"] == FlowResultType.FORM
     assert result["step_id"] == "user"
 
     # Enter some fake data into the form
