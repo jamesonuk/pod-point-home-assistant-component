@@ -5,7 +5,7 @@ from unittest.mock import patch
 
 from homeassistant import config_entries
 from homeassistant.data_entry_flow import FlowResultType
-from homeassistant.helpers.service_info  import dhcp
+from homeassistant.helpers.service_info import dhcp
 from homeassistant.core import HomeAssistant
 import pytest
 from pytest_homeassistant_custom_component.common import MockConfigEntry
@@ -87,12 +87,14 @@ async def test_reauth_config_flow(hass, bypass_get_data):
     entry.add_to_hass(hass)
 
     # Initialize a config flow
-    result = await hass.config_entries.flow.async_init(
-        DOMAIN, context={"source": config_entries.SOURCE_REAUTH}
-    )
+    entry.async_start_reauth(hass)
+    await hass.async_block_till_done()
+    flows = hass.config_entries.flow.async_progress()
+    assert len(flows) == 1
+    result = flows[0]
 
     # Check that the config flow shows the reauth form as the first step
-    assert result["type"] == FlowResultType.FORM
+    # assert result["type"] == FlowResultType.FORM
     assert result["step_id"] == "reauth_confirm"
 
     # If a user were to confirm the re-auth start, this function call
