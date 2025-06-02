@@ -87,7 +87,9 @@ async def test_reauth_config_flow(hass, bypass_get_data):
     entry.add_to_hass(hass)
 
     # Initialize a config flow
-    result = await entry.async_start_reauth(hass)
+    result = await hass.config_entries.flow.async_init(
+        DOMAIN, context={"source": config_entries.SOURCE_REAUTH}
+    )
 
     # Check that the config flow shows the reauth form as the first step
     assert result["type"] == FlowResultType.FORM
